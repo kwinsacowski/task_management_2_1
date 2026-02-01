@@ -1,0 +1,120 @@
+/* Fonts & colors */
+body {
+  font-family: "Garamond", "Times New Roman", serif;
+  background-color: #f6f1eb; /* Creamy parchment color */
+  color: #3e2c23; /* Dark brown text */
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #5d4037; /* warm brown links */
+}
+
+a:hover {
+  color: #8d6e63; /* lighter brown hover */
+}
+
+/* NavBar */
+nav {
+  background-color: #d7c4a3; /* light wooden plank color */
+  border-bottom: 2px solid #8d6e63;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+nav button {
+  background-color: #8d6e63; /* darker wood tone */
+  color: #f6f1eb;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-family: inherit;
+  border-radius: 4px;
+}
+
+nav button:hover {
+  background-color: #5d4037;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff8f0; /* soft cream card background */
+  border: 2px solid #d7c4a3;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Task Cards */
+.task-card {
+  border: 1px solid #d7c4a3;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  background-color: #fffaf0; /* subtle parchment tone */
+}
+
+.task-card h4 {
+  margin-top: 0;
+  font-family: "Garamond", serif;
+}
+
+.task-card button {
+  background-color: #8d6e63;
+  color: #f6f1eb;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  border-radius: 4px;
+}
+
+.task-card button:hover {
+  background-color: #5d4037;
+}
+
+/* Forms */
+input, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #d7c4a3;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+button.primary {
+  background-color: #8d6e63;
+  color: #f6f1eb;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+button.primary:hover {
+  background-color: #5d4037;
+}
+
+/* Center Login Page */
+.login-page {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.login-page button {
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+}
