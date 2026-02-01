@@ -1,73 +1,106 @@
-# React + TypeScript + Vite
+🧺 Cozy Cottage Task Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A user-authenticated task management application built with React, TypeScript, Context API, and Auth0.
+Each user has their own persistent task list stored locally and isolated by their Auth0 identity.
 
-Currently, two official plugins are available:
+This project demonstrates modern React architecture, protected routes, global state management, and per-user data persistence.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🔐 Auth0 Authentication (login/logout, protected routes)
+🗂️ Task CRUD (Create, Read, Update, Delete)
+🌍 Global state management using React Context API
+💾 Persistent storage using localStorage
+👤 Per-user task isolation using Auth0 user ID
+🧭 React Router navigation with dynamic routes
+🧵 Strong typing throughout using TypeScript
+🎨 Styled dashboard UI
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🛠️ Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+React
+TypeScript
+React Router DOM
+Auth0 React SDK
+Context API
+Vite
+Local Storage API
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+📁 Project Structure
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+src/
+│
+├── components/
+│   ├── Dashboard.tsx
+│   ├── TaskDetails.tsx
+│
+├── context/
+│   └── TaskContext.tsx
+│
+├── types/
+│   └── types.ts
+│
+├── auth/
+│   └── AuthProvider.tsx
+│
+├── App.tsx
+└── main.tsx
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+🔐 Authentication Flow
+
+This app uses Auth0 for authentication.
+ - Unauthenticated users are redirected to login
+ - Authenticated users can access the dashboard
+ - Tasks are saved using a key based on the user’s Auth0 sub id
+
+---
+
+Setup 
+1️⃣ Clone the repository
+  git clone <your-repo-url>
+  cd cozy-cottage-task-dashboard
+
+2️⃣ Install dependencies
+  npm install
+
+3️⃣ Set up Auth0
+  VITE_AUTH0_DOMAIN=your_domain_here
+  VITE_AUTH0_CLIENT_ID=your_client_id_here
+
+
+In the Auth0 dashboard, make sure the following URLs are all set to http://localhost:5173
+ - Allowed Callback URLs
+ - Allowed Logout URLS
+ - Allowed Web Origins
+
+4️⃣ Start the dev server
+  npm run dev
+
+Visit: http://localhost:5173
+
+
+---
+
+📚 What This Project Demonstrates
+ - Real-world React architecture
+ - Proper TypeScript usage
+ - Authentication & route protection
+ - Global state patterns
+ - Data persistence strategies
+ - Clean component separation
+
+ ---
+
+ 👩‍💻 Author
+
+Kayla Salmon
+Software Engineer | Full Stack Developer
