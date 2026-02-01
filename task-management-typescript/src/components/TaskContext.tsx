@@ -1,9 +1,10 @@
-import React, { createContext, useState, ReactNode } from 'react';
+import React, { createContext, useState, ReactNode }from 'react';
 import type { Task } from '../types/types';
+import { useEffect } from 'react';
 
 
 
-// Define the context type
+
 interface TaskContextType {
   tasks: Task[];
   addTask: (task: Task) => void;
@@ -21,7 +22,10 @@ interface Props {
 
 // TaskProvider component
 export const TaskProvider: React.FC<Props> = ({ children }) => {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>(() => {
+    const saved = localStorage.getItem('tasks');
+    return saved ? JSON.parse(saved) : [];
+});
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
 
   const addTask = (task: Task) => setTasks(prev => [...prev, task]);
@@ -37,6 +41,11 @@ export const TaskProvider: React.FC<Props> = ({ children }) => {
   };
 
   const selectTask = (task: Task | null) => setSelectedTask(task);
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
+
 
   return (
     <TaskContext.Provider

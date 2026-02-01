@@ -15,14 +15,20 @@ const Dashboard: React.FC = () => {
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [error, setError] = useState('');
 
   const handleAddTask = () => {
-    if (!title.trim()) return;
+    if (!title.trim()) {
+    setError('Task title is required');
+    return;
+  }
+
     const newTask: Task = { id: Date.now(), title, description };
     addTask(newTask);
     setTitle('');
     setDescription('');
-  };
+    setError('');
+};
 
   const handleViewDetails = (task: Task) => {
     selectTask(task);
@@ -47,6 +53,7 @@ const Dashboard: React.FC = () => {
           onChange={e => setDescription(e.target.value)}
           style={{ width: '100%', padding: '0.5rem', fontFamily: 'Garamond, serif' }}
         />
+        {error && (<p style={{ color: 'darkred', marginTop: '0.5rem' }}>{error}</p>)}
         <button onClick={handleAddTask} style={{ marginTop: '0.5rem', padding: '0.5rem 1rem', backgroundColor: '#8B5E3C', color: '#fff', border: 'none', borderRadius: '4px' }}>
           Add Task
         </button>
